@@ -7,6 +7,11 @@ const user = require('../user');
 // ---- implementations moved out of the exports wrapper ----
 
 async function getUserBookmark(tid, uid) {
+	// TEMP: log for manual verification; remove before final commit
+	console.log('NOOR_NIKNAM:getUserBookmark', { tid, uid });
+	// Or, if you prefer winston:
+	// require.main.require('winston').info('NOOR_NIKNAM:getUserBookmark', { tid, uid });
+
 	if (Number.parseInt(uid, 10) <= 0) {
 		return null;
 	}
@@ -19,13 +24,13 @@ async function getUserBookmarks(tids, uid) {
 	}
 	return db.sortedSetsScore(
 		tids.map(tid => `tid:${tid}:bookmarks`),
-		uid,
+		uid
 	);
 }
 
 async function setUserBookmark(tid, uid, index) {
-	// ⬇️ Your requested log line
-	require.main.require('winston').info('NOOR_NIKNAM: reached src/topics/bookmarks.js > setUserBookmark');
+	// TEMP: log for manual verification; remove before final commit
+	//console.log('NOOR_NIKNAM:setUserBookmark', { tid, uid, index });
 
 	if (Number.parseInt(uid, 10) <= 0) {
 		return;
