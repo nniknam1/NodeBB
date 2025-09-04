@@ -8,7 +8,7 @@ const user = require('../user');
 
 async function getUserBookmark(tid, uid) {
 	// TEMP: log for manual verification; remove before final commit
-	console.log('NOOR_NIKNAM:getUserBookmark', { tid, uid });
+	//console.log('NOOR_NIKNAM:getUserBookmark', { tid, uid });
 	// Or, if you prefer winston:
 	// require.main.require('winston').info('NOOR_NIKNAM:getUserBookmark', { tid, uid });
 
